@@ -23,12 +23,14 @@ def input_students
 end
 
 def print(students)
-  students.each_with_index do |student, index|
-    if student[:name][0] == "a" && student[:name].length < 12
-    puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
+  x = 0
+  while x < students.length
+    puts "#{x + 1}. #{students[x][:name]} (#{students[x][:cohort]} cohort)"
+    x += 1
   end
 end
-end
+
+
 def print_footer(names)
 puts "Overall, we have #{names.count} great students"
 end
