@@ -17,12 +17,18 @@ def input_students
     height = gets.chomp
     puts "What is your hobbie?".center(50)
     hobbie = gets.chomp
-    students << {name: name, height: height, hobbie: hobbie, cohort: :november}
+    puts "Please enter your cohort"
+    cohort = gets.chomp
+    if cohort == ""
+      cohort = "you don't go here"
+    end
+    students << {name: name, height: height, hobbie: hobbie, cohort: cohort.to_sym}
     puts "Now we have #{students.count} great students".center(50)
     # get another name from the user
     puts "Enter the next student".center(50)
     name = gets.chomp
   end
+
   # return the array of the students
   students
 end
@@ -30,7 +36,7 @@ end
 def print(students)
   x = 0
   while x < students.length
-    puts "#{x + 1}. #{students[x][:name]}, #{students[x][:height]}, #{students[x][:hobbie]}, (#{students[x][:cohort]} cohort)".center(50)
+    puts "#{x + 1}. #{students[x][:name]}, #{students[x][:height]}ft, #{students[x][:hobbie]}, (#{students[x][:cohort]} cohort)".center(50)
     x += 1
   end
 end
